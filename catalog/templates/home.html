@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - For All Counseling{% endblock %}
+
+{% block content %}
+    <h2>Our Model</h2>
+    <p>
+        For All Counseling aims to increase access to mental health evaluations for people going through
+        immigration and asylum proceedings despite language, location, or ability to pay.
+        We also aim to pay clinicians a fair market rate to create a sustainable model
+        where both clients and clinicians feel valued.We seek funding from donors and grants to offset the cost of our subsidized evaluations.
+    </p>
+
+    <h3>Ready to get started?</h3>
+    <a href="{% url 'signup' %}" class="button">Contact Us</a>
+{% endblock %}
