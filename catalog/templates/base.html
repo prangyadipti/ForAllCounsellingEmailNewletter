@@ -1,66 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>{% block title %}For All Counseling{% endblock %}</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header, footer {
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
-        nav a {
-            margin: 0 15px;
-            color: #007bff;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            margin: 40px auto;
-            max-width: 800px;
-            padding: 20px;
-        }
-        a.button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a.button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
+    {% load static %}
 
-<header>
-    <h1>For All Counseling</h1>
-    <nav>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'signup' %}">Signup</a>
-        <a href="{% url 'admin_dashboard' %}">Admin</a>
-    </nav>
-</header>
+    <!-- 1) Import our serif “Playfair Display” font from Google -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
-<div class="container">
-    {% block content %}
-    {% endblock %}
-</div>
+    <!-- 2) Then load our own CSS so we can use the font -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+  <body>
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+      <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="{% url 'home' %}">For All Counseling</a>
+        </div>
 
-<footer>
-    <p>© 2025 For All Counseling. All rights reserved.</p>
-</footer>
+        <!-- Navigation + Buttons -->
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">How to Help</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Board Member Application</a></li>
+            <li><a href="#">Español de México</a></li>
+          </ul>
+          <div class="nav-buttons">
+            <a href="{% url 'signup' %}" class="btn-cta">Signup</a>
+            <a href="#" class="btn-cta">Donate</a>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-</body>
+    <!-- MAIN CONTENT -->
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>© 2025 For All Counseling. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
