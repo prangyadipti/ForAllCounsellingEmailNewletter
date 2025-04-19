@@ -1,19 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Thank You - For All Counseling{% endblock %}
+{% block title %}
+Thank You – For All Counseling
+{% endblock %}
 
 {% block content %}
-    <h2>Thank you for subscribing to our Newsletter!</h2>
-    <p>You’ll receive updates and news from us soon.</p>
+<section class="thank-section">
+  <div class="thank-container">
 
-    <h3>How You Can Help</h3>
-    <p>
-        Every bit of support we receive helps.
-        If you are interested in supporting our mission
-        to provide high-quality mental health services to people
-        going through immigration and asylum proceedings,
-        please see below for all the ways you can help.
-    </p>
+    <!-- left side: message box -->
+    <div class="thank-form">
+      <h2>Thank You for Subscribing!</h2>
+      <p>We’ve received your info and will send updates soon.</p>
 
-    <a href="{% url 'home' %}" class="button">Return to Home</a>
+      <h3>How You Can Help</h3>
+      <p>
+        Every bit of support helps. If you’d like to back our mission
+        to provide mental health services for those in need,
+        please explore the options below.
+      </p>
+
+      <a href="{% url 'home' %}" class="btn-cta">Return to Home</a>
+    </div>
+
+    <!-- right side: illustration -->
+    <div class="thank-image">
+      <img
+        src="{% static 'images/dandelion.jpg' %}"
+        alt="Dandelion illustration"
+      >
+    </div>
+
+  </div>
+</section>
 {% endblock %}
