@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login – For All Counseling{% endblock %}
+
+{% block content %}
+<section class="login-section">
+  <div class="signup-container">
+    <div class="signup-form">
+      <h2>User Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-cta">Login</button>
+      </form>
+         <!-- 👇 Return to Home Link -->
+      <p class="back-link">
+        <a href="{% url 'home' %}">← Return to Home</a>
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

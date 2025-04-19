@@ -18,19 +18,27 @@ Signup – For All Counseling
     <!-- left side: form box -->
     <div class="signup-form">
       <h2>Your Contact Information</h2>
-      <form method="post">
-        {% csrf_token %}
-        {% for field in form %}
-          <div class="form-group">
-            {{ field.label_tag }}        {# show the label #}
-            {{ field }}                  {# input/select/textarea #}
-            {% if field.errors %}
-              <div class="error">{{ field.errors|join:", " }}</div>
-            {% endif %}
-          </div>
-        {% endfor %}
-        <button type="submit" class="btn-cta">Subscribe</button>
-      </form>
+     <form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="form-group">
+      {% if field.name == "agree_to_terms" %}
+        <p>Add me to your newsletter</p>
+        <label>
+          {{ field }} {{ field.label }}
+        </label>
+      {% else %}
+        {{ field.label_tag }}
+        {{ field }}
+      {% endif %}
+      {% if field.errors %}
+        <div class="error">{{ field.errors|join:", " }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  <button type="submit" class="btn-cta">Subscribe to Newsletter</button>
+</form>
       <p class="back-link"><a href="{% url 'home' %}">← Return to Home</a></p>
     </div>
 

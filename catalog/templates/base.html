@@ -5,13 +5,10 @@
     <title>{% block title %}For All Counseling{% endblock %}</title>
     {% load static %}
 
-    <!-- 1) Import our serif “Playfair Display” font from Google -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    <!-- 2) Then load our own CSS so we can use the font -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   </head>
   <body>
@@ -20,10 +17,12 @@
       <div class="nav-container">
         <!-- Logo -->
         <div class="logo">
-          <a href="{% url 'home' %}">For All Counseling</a>
+          <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="For All Counseling Logo" class="logo-img">
+          </a>
         </div>
 
-        <!-- Navigation + Buttons -->
+        <!-- Navigation -->
         <nav class="main-nav">
           <ul class="nav-links">
             <li><a href="#">About</a></li>
@@ -33,9 +32,17 @@
             <li><a href="#">Board Member Application</a></li>
             <li><a href="#">Español de México</a></li>
           </ul>
+
+          <!-- Buttons -->
           <div class="nav-buttons">
-            <a href="{% url 'signup' %}" class="btn-cta">Signup</a>
             <a href="#" class="btn-cta">Donate</a>
+
+            {% if user.is_authenticated %}
+              <a href="{% url 'admin_dashboard' %}" class="btn-cta">Dashboard</a>
+              <a href="{% url 'logout' %}" class="btn-cta">Logout</a>
+            {% else %}
+              <a href="{% url 'login' %}" class="btn-cta">Login</a>
+            {% endif %}
           </div>
         </nav>
       </div>
@@ -43,6 +50,14 @@
 
     <!-- MAIN CONTENT -->
     <main>
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <p class="message {{ message.tags }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
       {% block content %}{% endblock %}
     </main>
 

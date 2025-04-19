@@ -3,7 +3,17 @@
 {% block title %}Admin Dashboard - For All Counseling{% endblock %}
 
 {% block content %}
-    <h2>Subscriber List</h2>
+<div style="width: 80%; margin: 20px auto;">
+    <h2>Admin Dashboard</h2>
+    <h3>Summary</h3>
+    <h3>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h3>
+ </div>
+    <div style="width: 80%; margin: 20px auto;">
+        <ul style="line-height: 1.8;">
+        <li><strong>Total Subscribers:</strong> {{ total_subscribers }}</li>
+        <li><strong>Current Month Signups:</strong> {{ current_month_signups }}</li>
+      </ul>
+    </div>
 
     {% if subscribers %}
     <table border="1" cellspacing="0" cellpadding="8" style="margin: auto; width: 80%; border-collapse: collapse;">
@@ -36,10 +46,15 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'export_subscribers' %}" class="btn-cta">Export Subscribers to CSV</a>
+    </p>
+
     {% else %}
     <p>No subscribers yet.</p>
     {% endif %}
 
     <br>
-    <a href="{% url 'home' %}" class="button">Return to Home</a>
+    <p class="back-link"><a href="{% url 'home' %}">← Return to Home</a></p>
 {% endblock %}

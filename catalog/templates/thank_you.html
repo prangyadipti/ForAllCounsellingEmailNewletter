@@ -11,17 +11,21 @@ Thank You – For All Counseling
 
     <!-- left side: message box -->
     <div class="thank-form">
-      <h2>Thank You for Subscribing!</h2>
-      <p>We’ve received your info and will send updates soon.</p>
+      <p><strong>Thank You for Subscribing to our Newsletter!</strong></p>
+      <p><strong>You'll receive updates and news from us soon.</strong></p>
 
+      <div class="help-box">
       <h3>How You Can Help</h3>
-      <p>
-        Every bit of support helps. If you’d like to back our mission
-        to provide mental health services for those in need,
-        please explore the options below.
-      </p>
 
-      <a href="{% url 'home' %}" class="btn-cta">Return to Home</a>
+        <p>
+          Every bit of support we receive helps.
+          If you are interested in supporting our mission to provide high quality mental
+          health services to people going through immigration and asylum procceedings,
+          please see below for all the ways you can help.
+        </p>
+      </div>
+
+
     </div>
 
     <!-- right side: illustration -->
@@ -33,5 +37,7 @@ Thank You – For All Counseling
     </div>
 
   </div>
+
+  <p class="back-link"><a href="{% url 'home' %}">← Return to Home</a></p>
 </section>
 {% endblock %}
