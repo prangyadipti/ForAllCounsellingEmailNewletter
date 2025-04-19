@@ -53,6 +53,14 @@ def export_subscribers_csv(request):
 
     return response
 
+
+def delete_subscriber(request, subscriber_id):
+    subscriber = get_object_or_404(Subscriber, id=subscriber_id)
+    subscriber.delete()
+    messages.success(request, "Subscriber deleted successfully.")
+    return redirect('admin_dashboard')
+
+
 def logout_view(request):
     logout(request)  # Logs out the user
     return render(request, 'logout.html')  # Renders the template
