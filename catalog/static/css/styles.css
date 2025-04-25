@@ -1,4 +1,4 @@
-/* RESET & GLOBAL */
+/* ───────────────── RESET & GLOBAL ───────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -21,10 +21,10 @@ a {
   color: inherit;
 }
 
-/* HEADER & NAV */
+/* ───────────────── HEADER & NAV ─────────────────── */
 .site-header {
   background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
   position: relative;
   z-index: 10;
 }
@@ -67,7 +67,7 @@ a {
 
 .nav-links li:not(:last-child)::after {
   content: "|";
-  margin: 0 0.5rem;
+  margin: 0 .5rem;
   color: #ccc;
 }
 
@@ -83,22 +83,23 @@ a {
 }
 
 .btn-cta {
-  background: #f4978e;
+  background: #E79B91;
   color: #fff;
   padding: 8px 16px;
   border-radius: 4px;
   font-weight: 600;
-  transition: background-color 0.2s;
+  transition: background-color .2s;
 }
+
 .btn-cta:hover {
   background: #e07a6a;
 }
 
-/* HERO SECTION */
+/* ───────────────── HERO SECTION ─────────────────── */
 .hero-section {
   background: #89cbc4;
   padding: 40px 20px;
-  border-radius: 12px;               /* optional rounded corners */
+  border-radius: 12px;
   margin: 20px auto;
   max-width: 1200px;
 }
@@ -118,6 +119,7 @@ a {
   padding: 10px;
   text-align: center;
 }
+
 .hero-image img {
   max-width: 100%;
   border-radius: 8px;
@@ -132,6 +134,7 @@ a {
 .hero-text p {
   color: #fff;
 }
+
 .hero-text h2 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -139,13 +142,14 @@ a {
   display: inline-block;
   padding-bottom: 5px;
 }
+
 .hero-text p {
   font-size: 1.1rem;
   line-height: 1.6;
   max-width: 600px;
 }
 
-/* FOOTER */
+/* ───────────────── FOOTER ───────────────────────── */
 .site-footer {
   text-align: center;
   background: #fff;
@@ -154,7 +158,7 @@ a {
   color: #555;
 }
 
-/* SIGNUP PAGE */
+/* ───────────────── SIGN-UP PAGE ─────────────────── */
 .signup-section {
   padding: 60px 0;
   background: #fff;
@@ -165,7 +169,7 @@ a {
   width: 90%;
   margin: 0 auto;
   display: flex;
-  align-items: stretch; /* match form and image height */
+  align-items: stretch;
   gap: 40px;
   flex-wrap: wrap;
 }
@@ -175,22 +179,26 @@ a {
   background: #f8f9fa;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
 }
+
 .signup-form h2 {
   margin-bottom: 20px;
   font-size: 2rem;
   color: #164B80;
   text-align: center;
 }
+
 .form-group {
   margin-bottom: 16px;
 }
+
 .form-group label {
   display: block;
   margin-bottom: 6px;
   font-weight: 500;
 }
+
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -200,15 +208,18 @@ a {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .signup-form .btn-cta {
   display: block;
   width: 100%;
   margin-top: 20px;
 }
+
 .back-link {
   text-align: center;
   margin-top: 16px;
 }
+
 .back-link a {
   color: #17a589;
 }
@@ -217,9 +228,10 @@ a {
   flex: 1 1 45%;
   display: flex;
 }
+
 .signup-image img {
   width: 100%;
-  height: 100%;       /* fill form height */
+  height: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -229,103 +241,100 @@ a {
   width: auto;
 }
 
-/* RESPONSIVE */
+/* ───────────────── THANK-YOU PAGE ───────────────── */
+.thank-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+/* centred two-column layout */
+.thank-container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.thank-form,
+.thank-image {
+  flex: 1 1 480px;
+}
+
+.thank-form {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.thank-form h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #164B80;
+  margin-bottom: 16px;
+}
+
+.thank-form p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.thank-form h3 {
+  font-size: 1.5rem;
+  color: #17a589;
+  margin-bottom: 12px;
+}
+
+.thank-form .btn-cta {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* illustration */
+.thank-image {
+  overflow: hidden;
+}
+
+.thank-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* mobile stacking for sign-up & thank-you */
 @media (max-width: 768px) {
   .nav-container,
   .main-nav {
     flex-direction: column;
     gap: 10px;
   }
-  .main-nav {
-    justify-content: center;
-  }
   .hero-container,
-  .signup-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero-text h2 {
-    margin-top: 20px;
-  }
-  .signup-form,
-  .signup-image {
-    flex: 1 1 100%;
-  }
-}
-/* ===== THANK YOU PAGE ===== */
-.thank-section {
-  padding: 60px 0;           /* space around entire block */
-  background: #fff;          /* white bg */
-}
-
-.thank-container {
-  max-width: 1200px;
-  width: 90%;
-  margin: 0 auto;            /* center it */
-  display: flex;             /* two‑column layout */
-  align-items: stretch;      /* match heights */
-  gap: 40px;                 /* gap between columns */
-  flex-wrap: wrap;           /* stack on narrow screens */
-}
-
-/* message card styling */
-.thank-form {
-  flex: 1 1 45%;             /* about half width */
-  background: #f8f9fa;       /* light grey box */
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.thank-form h2 {
-  text-align: center;        /* center heading */
-  font-size: 2rem;
-  color: #164B80;
-  margin-bottom: 16px;
-}
-.thank-form p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-.thank-form h3 {
-  font-size: 1.5rem;
-  color: #17a589;            /* accent color */
-  margin-bottom: 12px;
-}
-.thank-form .btn-cta {
-  display: block;            /* full‑width button */
-  width: 100%;
-  margin-top: 20px;
-}
-
-/* illustration column */
-.thank-image {
-  flex: 1 1 45%;
-  display: flex;             /* let img stretch */
-}
-.thank-image img {
-  width: 60%;
-  height: 10
-  object-fit: cover;         /* crop/scale nicely */
-  border-radius: 8px;
-}
-
-/* mobile stacking */
-@media (max-width: 768px) {
+  .signup-container,
   .thank-container {
     flex-direction: column;
     align-items: center;
   }
+  .signup-form,
+  .signup-image,
   .thank-form,
   .thank-image {
-    flex: 1 1 100%;         /* full width on mobile */
+    flex: 1 1 100%;
   }
 }
+
+/* ───────────────── CTA BANNER / HELP BOX ─ */
 .cta-banner {
-  background-color: #0e2a47;
+  background: #0e2a47;
   padding: 20px 10px;
   text-align: center;
-  margin: 0px auto 0;
+  margin: 0 auto;
   max-width: 600px;
   border-radius: 12px;
 }
@@ -342,19 +351,179 @@ a {
 }
 
 .cta-button:hover {
-  background-color: #e07a6a;
+  background: #e07a6a;
 }
 
 .help-box {
-  border: 2px solid #17a589;         /* Teal border */
+  border: 2px solid #17a589;
   padding: 16px;
   border-radius: 8px;
   margin-top: 50px;
-  background-color: #f9f9f9;
-  text-align: center;/* Light background (optional) */
-}
-.help-box h3 {
-  color: #light green;
-  margin-bottom: 10px;
+  background: #f9f9f9;
   text-align: center;
+}
+
+.help-box h3 {
+  margin-bottom: 10px;
+}
+
+/* ───────────────── NEWSLETTER DETAIL ───────────────── */
+.newsletter-detail {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.newsletter-detail h1 {
+  font-size: 2.25rem;
+  color: #00395E;
+  margin-bottom: .5rem;
+}
+
+.newsletter-detail .published {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-detail .summary {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.newsletter-detail .view-original {
+  text-align: center;
+}
+
+.newsletter-detail .view-original .btn {
+  display: inline-block;
+  background: #F6AD9F;
+  color: #fff;
+  padding: .75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color .2s;
+}
+
+.newsletter-detail .view-original .btn:hover {
+  background: #e89b8b;
+}
+
+/* ——— Form styles for Add Newsletter ——— */
+.input-box {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-box:focus {
+  border-color: #E79B91;
+  box-shadow: 0 0 0 3px rgba(231,155,145,0.3);
+  outline: none;
+}
+
+.textarea-box {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+  min-height: 100px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.textarea-box:focus {
+  border-color: #E79B91;
+  box-shadow: 0 0 0 3px rgba(231,155,145,0.3);
+  outline: none;
+}
+
+.divider {
+  border: none;
+  border-bottom: 1px solid #eee;
+  margin: 1rem 0;
+}
+
+.btn-cta.fullwidth {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1rem;
+  background-color: #E79B91;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cta.fullwidth:hover {
+  background-color: #D68480;
+}
+
+.container.narrow {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 10px;
+}
+
+.input-short {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  display: block;
+}
+
+.input-short:focus {
+  border-color: #E79B91;
+  box-shadow: 0 0 0 3px rgba(231,155,145,0.3);
+  outline: none;
+}
+
+.newsletter-table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:1rem;
+}
+.newsletter-table th,
+.newsletter-table td {
+  border:1px solid #ddd;
+  padding:8px;
+}
+.newsletter-table thead {
+  background:#f5f5f5;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
 }

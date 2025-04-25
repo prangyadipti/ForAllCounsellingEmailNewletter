@@ -6,48 +6,67 @@ Signup – For All Counseling
 {% endblock %}
 
 {% block logo %}
-  {# swap in signup‑page PNG logo #}
-  <a href="{% url 'home' %}">
-    <img class="logo-img" src="{% static 'images/newlogo.png' %}" alt="For All Counseling">
-  </a>
+<!-- Logo linked to homepage -->
+<a href="{% url 'home' %}">
+  <img class="logo-img" src="{% static 'images/newlogo.png' %}" alt="For All Counseling">
+</a>
 {% endblock %}
 
 {% block content %}
 <section class="signup-section">
   <div class="signup-container">
-    <!-- left side: form box -->
+
+    <!-- Form section (left column) -->
     <div class="signup-form">
       <h2>Your Contact Information</h2>
-     <form method="post">
-  {% csrf_token %}
-  {% for field in form %}
-    <div class="form-group">
-      {% if field.name == "agree_to_terms" %}
-        <p>Add me to your newsletter</p>
-        <label>
-          {{ field }} {{ field.label }}
-        </label>
-      {% else %}
-        {{ field.label_tag }}
-        {{ field }}
-      {% endif %}
-      {% if field.errors %}
-        <div class="error">{{ field.errors|join:", " }}</div>
-      {% endif %}
-    </div>
-  {% endfor %}
+      <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
 
-  <button type="submit" class="btn-cta">Subscribe to Newsletter</button>
-</form>
-      <p class="back-link"><a href="{% url 'home' %}">← Return to Home</a></p>
+          {# Special rendering for checkbox fields #}
+          {% if field.name == "agree_to_terms" %}
+          <div class="checkbox-wrapper">
+            {{ field }}
+            <label for="{{ field.id_for_label }}">
+              {{ field.label }}
+            </label>
+          </div>
+
+          {% elif field.name == "newsletter_opt_in" %}
+          <div class="checkbox-wrapper">
+            {{ field }}
+            <label for="{{ field.id_for_label }}">
+              {{ field.label }}
+            </label>
+          </div>
+
+          {# All other regular fields #}
+          {% else %}
+            {{ field.label_tag }}
+            {{ field }}
+          {% endif %}
+
+          {# Display any validation errors for the field #}
+          {% if field.errors %}
+            <div class="error">{{ field.errors|join:", " }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="btn-cta">Subscribe to Newsletter</button>
+      </form>
+
+      <p class="back-link">
+        <a href="{% url 'home' %}">← Return to Home</a>
+      </p>
     </div>
 
-    <!-- right side: image -->
+    <!-- Right-side image section -->
     <div class="signup-image">
-      <img src="{% static 'images/signup-illustration.png' %}"
-           alt="Newsletter illustration"
-      >
+      <img src="{% static 'images/signup-illustration.png' %}" alt="Newsletter illustration">
     </div>
+
   </div>
 </section>
 {% endblock %}

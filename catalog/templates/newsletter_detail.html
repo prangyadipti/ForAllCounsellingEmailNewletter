@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ newsletter.title }} — For All Counseling{% endblock %}
+
+{% block content %}
+  <div class="newsletter-detail">
+    <h1>{{ newsletter.title }}</h1>
+    <p class="published">
+      Published on {{ newsletter.created_at|date:"F j, Y" }}
+    </p>
+
+    <div class="summary">
+      <p>{{ newsletter.summary }}</p>
+    </div>
+
+    <p class="view-original">
+      <a href="{{ newsletter.link }}" target="_blank" class="btn">
+        View Original Version
+      </a>
+    </p>
+  </div>
+{% endblock %}
